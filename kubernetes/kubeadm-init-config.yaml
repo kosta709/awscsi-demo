@@ -1,0 +1,36 @@
+
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: InitConfiguration
+bootstrapTokens:
+- token: "*******"
+  description: "default kubeadm bootstrap token"
+  ttl: "0"
+localAPIEndpoint:
+  advertiseAddress: 172.16.101.31
+  bindPort: 6443
+nodeRegistration:
+  kubeletExtraArgs:
+    cloud-provider: "aws"
+    allow-privileged: "true"
+    feature-gates: "CSINodeInfo=true,CSIDriverRegistry=true,CSIBlockVolume=true"
+---
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: v1.14.1
+clusterName: test1.mydomain.com
+controlPlaneEndpoint: test1-master-int.mydomain.com:6443
+networking:
+  serviceSubnet: 10.199.0.0/16
+  podSubnet: 10.200.0.0/16
+apiServer:
+  certSANs:
+  - test1-master.mydomain.com.com
+  - test1-master-int.mydomain.com
+  extraArgs:
+    cloud-provider: "aws"
+    allow-privileged: "true"
+    feature-gates: "CSINodeInfo=true,CSIDriverRegistry=true,CSIBlockVolume=true,VolumeSnapshotDataSource=true"
+controllerManager:
+  extraArgs:
+    cloud-provider: "aws"
+    configure-cloud-routes: "false"
