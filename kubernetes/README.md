@@ -36,6 +36,14 @@ Create Launch Configration to run in the same vpc as master
 Create Autoscaling group for the LC above, set TAG `KubernetesCluster=test1`
 Launch end ensure that instance connects to the 
 
+##### Create Autoscaling group for node
+Create Launch Configration to run in the same vpc as master and single subnet (us-east-1d)
+* set IAM Role = k8s-node-common
+* set userData to the content of `userdata-node.sh` - we set label "node-type=worker"
+
+Create Autoscaling group for the LC above, set TAG `KubernetesCluster=test1`
+Launch end ensure that instance connects to the 
+
 
 
 
