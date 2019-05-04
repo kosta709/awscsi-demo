@@ -5,13 +5,14 @@
   * Public IP subnet
   * Tags: Name=test1-master, KubernetesCluster=test1
   * IAM role = k8s-master - see `../iam`
+  * security group with inbound tcp 6443 and 22
 
 ##### Assing DNS names in route53 (ips are dummy)
   34.34.34.34 - test1-master.mydomain.com
   172.16.101.31 - test1-master-int.mydomain.com
 
 ##### Install Master
-scp to the master node `init-master.sh` and `kubeadm-init-config.yaml` and execute:
+scp `init-master.sh` and `kubeadm-init-config.yaml` to the master node  and execute:
 ```
 ./init-master.sh
 kubeadm init --config ./kubeadm-init-config.yaml
@@ -31,18 +32,20 @@ See https://medium.com/@kosta709/kubernetes-by-kubeadm-config-yamls-94e2ee11244 
 ##### Create Autoscaling group for csi-controller
 Create Launch Configration to run in the same vpc as master
 * set IAM Role = k8s-csi-controller
+* only ssh is needed to be open on the on security group 
 * set userData to the content of `userdata-csi-controller.sh` - we set taint "CriticalAddonsOnly" and label "node-type=csi-controller"
 
 Create Autoscaling group for the LC above, set TAG `KubernetesCluster=test1`
-Launch end ensure that instance connects to the 
+Launch end ensure that instance connects to the master by `kubectl get nodes --show-labels`  
 
 ##### Create Autoscaling group for node
 Create Launch Configration to run in the same vpc as master and single subnet (us-east-1d)
 * set IAM Role = k8s-node-common
+* only ssh is needed to be open on the security group
 * set userData to the content of `userdata-node.sh` - we set label "node-type=worker"
 
 Create Autoscaling group for the LC above, set TAG `KubernetesCluster=test1`
-Launch end ensure that instance connects to the 
+Launch end ensure that instance connects to the master by `kubectl get nodes --show-labels`  
 
 
 

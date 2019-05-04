@@ -24,7 +24,7 @@ networking:
   podSubnet: 10.200.0.0/16
 apiServer:
   certSANs:
-  - test1-master.mydomain.com.com
+  - test1-master.mydomain.com
   - test1-master-int.mydomain.com
   extraArgs:
     cloud-provider: "aws"
