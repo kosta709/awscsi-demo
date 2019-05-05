@@ -1,0 +1,39 @@
+[kosta@localhost awscsi-demo]$ kubectl -nkube-system logs ebs-csi-controller-0 csi-provisioner
+I0505 16:14:30.344716       1 csi-provisioner.go:82] Version: v1.0.1-0-g9a258a0a
+I0505 16:14:30.344786       1 csi-provisioner.go:96] Building kube configs for running in cluster...
+I0505 16:14:30.354190       1 controller.go:197] Connecting to /var/lib/csi/sockets/pluginproxy/csi.sock
+I0505 16:14:30.354688       1 controller.go:224] Still trying, connection is CONNECTING
+I0505 16:14:30.354913       1 controller.go:224] Still trying, connection is TRANSIENT_FAILURE
+I0505 16:14:31.355076       1 controller.go:224] Still trying, connection is CONNECTING
+I0505 16:14:31.355326       1 controller.go:224] Still trying, connection is TRANSIENT_FAILURE
+I0505 16:14:32.250781       1 controller.go:224] Still trying, connection is TRANSIENT_FAILURE
+I0505 16:14:33.405155       1 controller.go:221] Connected
+I0505 16:14:33.410743       1 controller.go:571] Starting provisioner controller ebs.csi.aws.com_ebs-csi-controller-0_de9791b6-6f50-11e9-9ef5-3adc120f65ae!
+I0505 16:14:33.511473       1 controller.go:620] Started provisioner controller ebs.csi.aws.com_ebs-csi-controller-0_de9791b6-6f50-11e9-9ef5-3adc120f65ae!
+I0505 16:56:07.669496       1 controller.go:926] provision "default/ebs-claim" class "ebs-sc": started
+I0505 16:56:07.675323       1 controller.go:188] GRPC call: /csi.v1.Identity/GetPluginCapabilities
+I0505 16:56:07.675343       1 controller.go:189] GRPC request: {}
+I0505 16:56:07.676436       1 event.go:221] Event(v1.ObjectReference{Kind:"PersistentVolumeClaim", Namespace:"default", Name:"ebs-claim", UID:"7522b7e8-6f55-11e9-bb97-0e59fa1a51a6", APIVersion:"v1", ResourceVersion:"1975458", FieldPath:""}): type: 'Normal' reason: 'Provisioning' External provisioner is provisioning volume for claim "default/ebs-claim"
+I0505 16:56:07.677269       1 controller.go:191] GRPC response: {"capabilities":[{"Type":{"Service":{"type":1}}},{"Type":{"Service":{"type":2}}}]}
+I0505 16:56:07.678696       1 controller.go:192] GRPC error: <nil>
+I0505 16:56:07.678707       1 controller.go:188] GRPC call: /csi.v1.Controller/ControllerGetCapabilities
+I0505 16:56:07.678712       1 controller.go:189] GRPC request: {}
+I0505 16:56:07.682786       1 controller.go:191] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":2}}},{"Type":{"Rpc":{"type":5}}}]}
+I0505 16:56:07.684908       1 controller.go:192] GRPC error: <nil>
+I0505 16:56:07.685027       1 controller.go:188] GRPC call: /csi.v1.Identity/GetPluginInfo
+I0505 16:56:07.685042       1 controller.go:189] GRPC request: {}
+I0505 16:56:07.685936       1 controller.go:191] GRPC response: {"name":"ebs.csi.aws.com","vendor_version":"0.3.0"}
+I0505 16:56:07.686390       1 controller.go:192] GRPC error: <nil>
+W0505 16:56:07.687165       1 topology.go:171] error getting CSINodeInfo for selected node "ip-172-16-101-65.ec2.internal": the server could not find the requested resource (get csinodeinfos.csi.storage.k8s.io ip-172-16-101-65.ec2.internal); proceeding to provision without topology information
+I0505 16:56:07.687188       1 controller.go:544] CreateVolumeRequest {Name:pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6 CapacityRange:required_bytes:4294967296  VolumeCapabilities:[mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER > ] Parameters:map[] Secrets:map[] VolumeContentSource:<nil> AccessibilityRequirements:<nil> XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:07.687374       1 controller.go:188] GRPC call: /csi.v1.Controller/CreateVolume
+I0505 16:56:07.687381       1 controller.go:189] GRPC request: {"capacity_range":{"required_bytes":4294967296},"name":"pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6","volume_capabilities":[{"AccessType":{"Mount":{"fs_type":"ext4"}},"access_mode":{"mode":1}}]}
+I0505 16:56:14.148783       1 controller.go:191] GRPC response: {"volume":{"accessible_topology":[{"segments":{"topology.ebs.csi.aws.com/zone":"us-east-1d"}}],"capacity_bytes":4294967296,"volume_context":{"fsType":""},"volume_id":"vol-052643952b6380cd0"}}
+I0505 16:56:14.150133       1 controller.go:192] GRPC error: <nil>
+I0505 16:56:14.150148       1 controller.go:605] create volume rep: {CapacityBytes:4294967296 VolumeId:vol-052643952b6380cd0 VolumeContext:map[fsType:] ContentSource:<nil> AccessibleTopology:[segments:<key:"topology.ebs.csi.aws.com/zone" value:"us-east-1d" > ] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:14.150219       1 controller.go:666] successfully created PV {GCEPersistentDisk:nil AWSElasticBlockStore:nil HostPath:nil Glusterfs:nil NFS:nil RBD:nil ISCSI:nil Cinder:nil CephFS:nil FC:nil Flocker:nil FlexVolume:nil AzureFile:nil VsphereVolume:nil Quobyte:nil AzureDisk:nil PhotonPersistentDisk:nil PortworxVolume:nil ScaleIO:nil Local:nil StorageOS:nil CSI:&CSIPersistentVolumeSource{Driver:ebs.csi.aws.com,VolumeHandle:vol-052643952b6380cd0,ReadOnly:false,FSType:ext4,VolumeAttributes:map[string]string{fsType: ,storage.kubernetes.io/csiProvisionerIdentity: 1557072870354-8081-ebs.csi.aws.com,},ControllerPublishSecretRef:nil,NodeStageSecretRef:nil,NodePublishSecretRef:nil,}}
+I0505 16:56:14.150340       1 controller.go:1026] provision "default/ebs-claim" class "ebs-sc": volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" provisioned
+I0505 16:56:14.150689       1 controller.go:1040] provision "default/ebs-claim" class "ebs-sc": trying to save persistentvolume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.159369       1 controller.go:1047] provision "default/ebs-claim" class "ebs-sc": persistentvolume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" saved
+I0505 16:56:14.159416       1 controller.go:1088] provision "default/ebs-claim" class "ebs-sc": succeeded
+I0505 16:56:14.159606       1 event.go:221] Event(v1.ObjectReference{Kind:"PersistentVolumeClaim", Namespace:"default", Name:"ebs-claim", UID:"7522b7e8-6f55-11e9-bb97-0e59fa1a51a6", APIVersion:"v1", ResourceVersion:"1975458", FieldPath:""}): type: 'Normal' reason: 'ProvisioningSucceeded' Successfully provisioned volume pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6

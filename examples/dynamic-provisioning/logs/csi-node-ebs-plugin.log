@@ -1,0 +1,43 @@
+[kosta@localhost awscsi-demo]$ kubectl -nkube-system logs ebs-csi-node-9g5wd ebs-plugin
+I0505 16:55:58.449842       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:55:58.451299       1 identity.go:61] Probe: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:08.449987       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:08.451340       1 identity.go:61] Probe: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.337492       1 node.go:268] NodeGetCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.341035       1 node.go:57] NodeStageVolume: called with args {VolumeId:vol-052643952b6380cd0 PublishContext:map[devicePath:/dev/xvdca] StagingTargetPath:/var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount VolumeCapability:mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER >  Secrets:map[] VolumeContext:map[fsType: storage.kubernetes.io/csiProvisionerIdentity:1557072870354-8081-ebs.csi.aws.com] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.341311       1 node.go:103] NodeStageVolume: find device path /dev/xvdca -> /dev/xvdca
+I0505 16:56:18.341610       1 node.go:145] NodeStageVolume: formatting /dev/xvdca and mounting at /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount
+I0505 16:56:18.341633       1 mount_linux.go:440] Checking for issues with fsck on disk: /dev/xvdca
+I0505 16:56:18.383265       1 mount_linux.go:453] `fsck` error fsck from util-linux 2.30.2
+fsck.ext2: Bad magic number in super-block while trying to open /dev/nvme1n1
+/dev/nvme1n1: 
+The superblock could not be read or does not describe a correct ext2
+filesystem.  If the device is valid and it really contains an ext2
+filesystem (and not swap or ufs or something else), then the superblock
+is corrupt, and you might try running e2fsck with an alternate superblock:
+    e2fsck -b 8193 <device>
+
+I0505 16:56:18.383289       1 mount_linux.go:459] Attempting to mount disk: ext4 /dev/xvdca /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount
+I0505 16:56:18.383312       1 mount_linux.go:146] Mounting cmd (mount) with arguments ([-t ext4 -o defaults /dev/xvdca /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount])
+E0505 16:56:18.431525       1 mount_linux.go:151] Mount failed: exit status 32
+Mounting command: mount
+Mounting arguments: -t ext4 -o defaults /dev/xvdca /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount
+Output: mount: /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount: wrong fs type, bad option, bad superblock on /dev/nvme1n1, missing codepage or helper program, or other error.
+
+I0505 16:56:18.431554       1 mount_linux.go:514] Attempting to determine if disk "/dev/xvdca" is formatted using blkid with args: ([-p -s TYPE -s PTTYPE -o export /dev/xvdca])
+I0505 16:56:18.443825       1 mount_linux.go:517] Output: "", err: exit status 2
+I0505 16:56:18.443859       1 mount_linux.go:488] Disk "/dev/xvdca" appears to be unformatted, attempting to format as type: "ext4" with options: [-F -m0 /dev/xvdca]
+I0505 16:56:18.451221       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.453547       1 identity.go:61] Probe: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.916341       1 mount_linux.go:492] Disk successfully formatted (mkfs): ext4 - /dev/xvdca /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount
+I0505 16:56:18.916374       1 mount_linux.go:146] Mounting cmd (mount) with arguments ([-t ext4 -o defaults /dev/xvdca /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount])
+I0505 16:56:18.935107       1 node.go:89] NodeStageVolume: volume="vol-052643952b6380cd0" operation finished
+I0505 16:56:18.937828       1 node.go:268] NodeGetCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.943074       1 node.go:198] NodePublishVolume: called with args {VolumeId:vol-052643952b6380cd0 PublishContext:map[devicePath:/dev/xvdca] StagingTargetPath:/var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount TargetPath:/var/lib/kubelet/pods/ad48656a-6f56-11e9-bb97-0e59fa1a51a6/volumes/kubernetes.io~csi/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/mount VolumeCapability:mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER >  Readonly:false Secrets:map[] VolumeContext:map[storage.kubernetes.io/csiProvisionerIdentity:1557072870354-8081-ebs.csi.aws.com fsType:] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:18.943147       1 node.go:367] NodePublishVolume: creating dir /var/lib/kubelet/pods/ad48656a-6f56-11e9-bb97-0e59fa1a51a6/volumes/kubernetes.io~csi/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/mount
+I0505 16:56:18.943167       1 node.go:372] NodePublishVolume: mounting /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount at /var/lib/kubelet/pods/ad48656a-6f56-11e9-bb97-0e59fa1a51a6/volumes/kubernetes.io~csi/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/mount
+I0505 16:56:18.943178       1 mount_linux.go:146] Mounting cmd (mount) with arguments ([-t ext4 -o bind /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount /var/lib/kubelet/pods/ad48656a-6f56-11e9-bb97-0e59fa1a51a6/volumes/kubernetes.io~csi/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/mount])
+I0505 16:56:18.947004       1 mount_linux.go:146] Mounting cmd (mount) with arguments ([-t ext4 -o bind,remount /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount /var/lib/kubelet/pods/ad48656a-6f56-11e9-bb97-0e59fa1a51a6/volumes/kubernetes.io~csi/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/mount])
+I0505 16:56:28.449807       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:28.451071       1 identity.go:61] Probe: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:38.462122       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}

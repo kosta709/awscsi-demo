@@ -1,0 +1,122 @@
+[kosta@localhost awscsi-demo]$ kubectl -nkube-system logs ebs-csi-controller-0 csi-attacher
+I0505 16:14:32.588672       1 main.go:76] Version: v1.0.1-0-gb7dadac
+I0505 16:14:32.590043       1 connection.go:89] Connecting to /var/lib/csi/sockets/pluginproxy/csi.sock
+I0505 16:14:32.590299       1 connection.go:116] Still trying, connection is CONNECTING
+I0505 16:14:32.590586       1 connection.go:113] Connected
+I0505 16:14:32.590818       1 connection.go:242] GRPC call: /csi.v1.Identity/Probe
+I0505 16:14:32.590979       1 connection.go:243] GRPC request: {}
+I0505 16:14:32.602304       1 connection.go:245] GRPC response: {}
+I0505 16:14:32.602864       1 connection.go:246] GRPC error: <nil>
+I0505 16:14:32.602873       1 main.go:211] Probe succeeded
+I0505 16:14:32.603001       1 connection.go:242] GRPC call: /csi.v1.Identity/GetPluginInfo
+I0505 16:14:32.603021       1 connection.go:243] GRPC request: {}
+I0505 16:14:32.604632       1 connection.go:245] GRPC response: {"name":"ebs.csi.aws.com","vendor_version":"0.3.0"}
+I0505 16:14:32.605077       1 connection.go:246] GRPC error: <nil>
+I0505 16:14:32.605085       1 main.go:128] CSI driver name: "ebs.csi.aws.com"
+I0505 16:14:32.605109       1 connection.go:242] GRPC call: /csi.v1.Identity/GetPluginCapabilities
+I0505 16:14:32.605134       1 connection.go:243] GRPC request: {}
+I0505 16:14:32.606219       1 connection.go:245] GRPC response: {"capabilities":[{"Type":{"Service":{"type":1}}},{"Type":{"Service":{"type":2}}}]}
+I0505 16:14:32.607432       1 connection.go:246] GRPC error: <nil>
+I0505 16:14:32.607440       1 connection.go:242] GRPC call: /csi.v1.Controller/ControllerGetCapabilities
+I0505 16:14:32.607466       1 connection.go:243] GRPC request: {}
+I0505 16:14:32.608593       1 connection.go:245] GRPC response: {"capabilities":[{"Type":{"Rpc":{"type":1}}},{"Type":{"Rpc":{"type":2}}},{"Type":{"Rpc":{"type":5}}}]}
+I0505 16:14:32.611435       1 connection.go:246] GRPC error: <nil>
+I0505 16:14:32.611628       1 main.go:152] CSI driver supports ControllerPublishUnpublish, using real CSI handler
+I0505 16:14:32.612087       1 controller.go:111] Starting CSI attacher
+I0505 16:14:32.712294       1 controller.go:203] Started PV processing "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712477       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712498       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:14:32.712294       1 controller.go:203] Started PV processing "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712561       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712586       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:14:32.712313       1 controller.go:203] Started PV processing "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712647       1 csi_handler.go:418] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712664       1 csi_handler.go:422] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:14:32.712326       1 controller.go:203] Started PV processing "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712677       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:14:32.712684       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:24:32.627799       1 controller.go:203] Started PV processing "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.627829       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.627838       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:24:32.627799       1 controller.go:203] Started PV processing "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.627861       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.627868       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:24:32.627901       1 controller.go:203] Started PV processing "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.627924       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.627943       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:24:32.628024       1 controller.go:203] Started PV processing "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.628038       1 csi_handler.go:418] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:24:32.628046       1 csi_handler.go:422] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:34:32.627906       1 controller.go:203] Started PV processing "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.627939       1 csi_handler.go:418] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.627949       1 csi_handler.go:422] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:34:32.627964       1 controller.go:203] Started PV processing "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.627971       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.627978       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:34:32.627992       1 controller.go:203] Started PV processing "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.628009       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.628016       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:34:32.628029       1 controller.go:203] Started PV processing "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.628035       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:34:32.628042       1 csi_handler.go:422] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:35:41.009387       1 controller.go:203] Started PV processing "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.009548       1 csi_handler.go:418] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.009649       1 csi_handler.go:438] CSIHandler: processing PV "pvc-e5d5a0e5-6d27-11e9-be16-0e59fa1a51a6": no finalizer, ignoring
+I0505 16:35:41.264095       1 controller.go:203] Started PV processing "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.264121       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.264184       1 csi_handler.go:438] CSIHandler: processing PV "pvc-f01b230a-6d27-11e9-be16-0e59fa1a51a6": no finalizer, ignoring
+I0505 16:35:41.464175       1 controller.go:203] Started PV processing "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.464205       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.464264       1 csi_handler.go:438] CSIHandler: processing PV "pvc-f022b986-6d27-11e9-be16-0e59fa1a51a6": no finalizer, ignoring
+I0505 16:35:41.884244       1 controller.go:203] Started PV processing "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.884281       1 csi_handler.go:418] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6"
+I0505 16:35:41.884339       1 csi_handler.go:438] CSIHandler: processing PV "pvc-f280306d-6d27-11e9-be16-0e59fa1a51a6": no finalizer, ignoring
+I0505 16:56:14.157837       1 controller.go:203] Started PV processing "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.157867       1 csi_handler.go:418] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.157876       1 csi_handler.go:422] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:56:14.161247       1 controller.go:203] Started PV processing "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.161298       1 csi_handler.go:418] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.161308       1 csi_handler.go:422] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:56:14.167659       1 controller.go:203] Started PV processing "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.167775       1 csi_handler.go:418] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.167796       1 csi_handler.go:422] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:56:14.769186       1 controller.go:173] Started VA processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:14.769222       1 csi_handler.go:93] CSIHandler: processing VA "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:14.769233       1 csi_handler.go:120] Attaching "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:14.769241       1 csi_handler.go:259] Starting attach operation for "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:14.769318       1 csi_handler.go:220] Adding finalizer to PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.772993       1 controller.go:203] Started PV processing "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.773016       1 csi_handler.go:418] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.773024       1 csi_handler.go:422] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 16:56:14.773947       1 csi_handler.go:228] PV finalizer added to "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 16:56:14.774816       1 csi_handler.go:524] Can't get CSINodeInfo ip-172-16-101-65.ec2.internal: the server could not find the requested resource (get csinodeinfos.csi.storage.k8s.io ip-172-16-101-65.ec2.internal)
+I0505 16:56:14.774997       1 csi_handler.go:181] VA finalizer added to "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:14.775023       1 csi_handler.go:195] NodeID annotation added to "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:14.778153       1 csi_handler.go:205] VolumeAttachment "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88" updated with finalizer and/or NodeID annotation
+I0505 16:56:14.778179       1 connection.go:242] GRPC call: /csi.v1.Controller/ControllerPublishVolume
+I0505 16:56:14.778204       1 connection.go:243] GRPC request: {"node_id":"i-0100ed4583f5ec1ce","volume_capability":{"AccessType":{"Mount":{"fs_type":"ext4"}},"access_mode":{"mode":1}},"volume_context":{"fsType":"","storage.kubernetes.io/csiProvisionerIdentity":"1557072870354-8081-ebs.csi.aws.com"},"volume_id":"vol-052643952b6380cd0"}
+I0505 16:56:16.574248       1 connection.go:245] GRPC response: {"publish_context":{"devicePath":"/dev/xvdca"}}
+I0505 16:56:16.575374       1 connection.go:246] GRPC error: <nil>
+I0505 16:56:16.575386       1 csi_handler.go:133] Attached "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.575404       1 util.go:33] Marking as attached "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.578924       1 util.go:43] Marked as attached "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.578950       1 csi_handler.go:139] Fully attached "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.578962       1 csi_handler.go:109] CSIHandler: finished processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.578998       1 controller.go:173] Started VA processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.579052       1 csi_handler.go:93] CSIHandler: processing VA "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 16:56:16.579083       1 csi_handler.go:115] "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88" is already attached
+I0505 16:56:16.579125       1 csi_handler.go:109] CSIHandler: finished processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 17:04:32.628215       1 controller.go:203] Started PV processing "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 17:04:32.628251       1 csi_handler.go:418] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 17:04:32.628260       1 csi_handler.go:422] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 17:04:32.629614       1 controller.go:173] Started VA processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 17:04:32.629635       1 csi_handler.go:93] CSIHandler: processing VA "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 17:04:32.629643       1 csi_handler.go:115] "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88" is already attached
+I0505 17:04:32.629651       1 csi_handler.go:109] CSIHandler: finished processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 17:14:32.628368       1 controller.go:203] Started PV processing "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 17:14:32.628408       1 csi_handler.go:418] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6"
+I0505 17:14:32.628420       1 csi_handler.go:422] CSIHandler: processing PV "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6": no deletion timestamp, ignoring
+I0505 17:14:32.629689       1 controller.go:173] Started VA processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 17:14:32.629712       1 csi_handler.go:93] CSIHandler: processing VA "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+I0505 17:14:32.629720       1 csi_handler.go:115] "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88" is already attached
+I0505 17:14:32.629784       1 csi_handler.go:109] CSIHandler: finished processing "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"

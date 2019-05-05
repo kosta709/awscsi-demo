@@ -1,0 +1,30 @@
+May  5 16:56:15 ip-172-16-101-65 kubelet: I0505 16:56:15.227531   12147 reconciler.go:207] operationExecutor.VerifyControllerAttachedVolume started for volume "pvc-7522b7e8-6f55-11e9-bb97-0e
+59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6")
+May  5 16:56:15 ip-172-16-101-65 kubelet: E0505 16:56:15.227644   12147 nestedpendingoperations.go:267] Operation for "\"kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0\"" failed. No
+ retries permitted until 2019-05-05 16:56:16.227607564 +0000 UTC m=+2522.719841132 (durationBeforeRetry 1s). Error: "Volume has not been added to the list of VolumesInUse in the node's volum
+e status for volume \"pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6\" (UniqueName: \"kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0\") pod \"app\" (UID: \"ad48656a-6f56-11e9-bb97-0e59fa1
+a51a6\") "
+May  5 16:56:15 ip-172-16-101-65 kernel: pci 0000:00:1f.0: BAR 0: assigned [mem 0xc0000000-0xc0003fff]
+May  5 16:56:15 ip-172-16-101-65 kernel: nvme nvme1: pci function 0000:00:1f.0
+May  5 16:56:15 ip-172-16-101-65 kernel: nvme 0000:00:1f.0: enabling device (0000 -> 0002)
+May  5 16:56:15 ip-172-16-101-65 kernel: ACPI: PCI Interrupt Link [LNKC] enabled at IRQ 10
+May  5 16:56:16 ip-172-16-101-65 kubelet: I0505 16:56:16.229588   12147 reconciler.go:207] operationExecutor.VerifyControllerAttachedVolume started for volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6")
+May  5 16:56:16 ip-172-16-101-65 kubelet: E0505 16:56:16.229810   12147 nestedpendingoperations.go:267] Operation for "\"kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0\"" failed. No retries permitted until 2019-05-05 16:56:18.229665545 +0000 UTC m=+2524.721899124 (durationBeforeRetry 2s). Error: "Volume has not been added to the list of VolumesInUse in the node's volume status for volume \"pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6\" (UniqueName: \"kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0\") pod \"app\" (UID: \"ad48656a-6f56-11e9-bb97-0e59fa1a51a6\") "
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.233206   12147 reconciler.go:207] operationExecutor.VerifyControllerAttachedVolume started for volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6")
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.235556   12147 operation_generator.go:1338] Controller attach succeeded for volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6") device path: "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.333720   12147 operation_generator.go:589] MountVolume.WaitForAttach entering for volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6") DevicePath "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.335992   12147 operation_generator.go:598] MountVolume.WaitForAttach succeeded for volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6") DevicePath "csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88"
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.336529   12147 clientconn.go:440] parsed scheme: ""
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.336552   12147 clientconn.go:440] scheme "" not registered, fallback to default scheme
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.336591   12147 asm_amd64.s:1337] ccResolverWrapper: sending new addresses to cc: [{/var/lib/kubelet/plugins/ebs.csi.aws.com/csi.sock 0  <nil>}]
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.336605   12147 clientconn.go:796] ClientConn switching balancer to "pick_first"
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.336643   12147 balancer_conn_wrappers.go:131] pickfirstBalancer: HandleSubConnStateChange: 0xc000389050, CONNECTING
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.337204   12147 balancer_conn_wrappers.go:131] pickfirstBalancer: HandleSubConnStateChange: 0xc000389050, READY
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.339436   12147 clientconn.go:440] parsed scheme: ""
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.339454   12147 clientconn.go:440] scheme "" not registered, fallback to default scheme
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.339500   12147 asm_amd64.s:1337] ccResolverWrapper: sending new addresses to cc: [{/var/lib/kubelet/plugins/ebs.csi.aws.com/csi.sock 0  <nil>}]
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.339511   12147 clientconn.go:796] ClientConn switching balancer to "pick_first"
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.339583   12147 balancer_conn_wrappers.go:131] pickfirstBalancer: HandleSubConnStateChange: 0xc000fa9280, CONNECTING
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.340521   12147 balancer_conn_wrappers.go:131] pickfirstBalancer: HandleSubConnStateChange: 0xc000fa9280, READY
+May  5 16:56:18 ip-172-16-101-65 kernel: EXT4-fs (nvme1n1): VFS: Can't find ext4 filesystem
+May  5 16:56:18 ip-172-16-101-65 kubelet: I0505 16:56:18.935665   12147 operation_generator.go:625] MountVolume.MountDevice succeeded for volume "pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6" (UniqueName: "kubernetes.io/csi/ebs.csi.aws.com^vol-052643952b6380cd0") pod "app" (UID: "ad48656a-6f56-11e9-bb97-0e59fa1a51a6") device mount path "/var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount"

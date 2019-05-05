@@ -1,0 +1,43 @@
+[kosta@localhost awscsi-demo]$ kubectl get pv pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6 -oyaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: ebs.csi.aws.com
+  creationTimestamp: "2019-05-05T16:56:14Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  - external-attacher/ebs-csi-aws-com
+  name: pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 4Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: ebs-claim
+    namespace: default
+    resourceVersion: "1975458"
+    uid: 7522b7e8-6f55-11e9-bb97-0e59fa1a51a6
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4
+    volumeAttributes:
+      fsType: ""
+      storage.kubernetes.io/csiProvisionerIdentity: 1557072870354-8081-ebs.csi.aws.com
+    volumeHandle: vol-052643952b6380cd0
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - us-east-1d
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: ebs-sc
+  volumeMode: Filesystem
+status:
+  phase: Bound

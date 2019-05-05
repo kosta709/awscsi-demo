@@ -1,0 +1,141 @@
+[kosta@localhost awscsi-demo]$ kubectl -nkube-system logs ebs-csi-controller-0 ebs-plugin
+I0505 16:14:27.498385       1 driver.go:49] Driver: ebs.csi.aws.com Version: 0.3.0
+I0505 16:14:32.569967       1 mount_linux.go:174] Cannot run systemd-run, assuming non-systemd OS
+I0505 16:14:32.569979       1 mount_linux.go:175] systemd-run failed with: exit status 1
+I0505 16:14:32.569988       1 mount_linux.go:176] systemd-run output: Failed to create bus connection: No such file or directory
+I0505 16:14:32.570214       1 driver.go:93] Listening for connections on address: &net.UnixAddr{Name:"/var/lib/csi/sockets/pluginproxy/csi.sock", Net:"unix"}
+I0505 16:14:32.601716       1 identity.go:61] Probe: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:14:32.604331       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:14:32.605851       1 identity.go:37] GetPluginCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:14:32.608194       1 controller.go:235] ControllerGetCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:14:34.880844       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:14:34.881331       1 identity.go:61] Probe: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:14:34.881610       1 controller.go:235] ControllerGetCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:15:28.989477       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:07.676904       1 identity.go:37] GetPluginCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:07.682451       1 controller.go:235] ControllerGetCapabilities: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:07.685727       1 identity.go:27] GetPluginInfo: called with args {XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:07.690189       1 controller.go:51] CreateVolume: called with args {Name:pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6 CapacityRange:required_bytes:4294967296  VolumeCapabilities:[mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER > ] Parameters:map[] Secrets:map[] VolumeContentSource:<nil> AccessibilityRequirements:<nil> XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:07.797799       1 cloud.go:254] AZ is not provided. Using node AZ [us-east-1d]
+I0505 16:56:14.780419       1 controller.go:169] ControllerPublishVolume: called with args {VolumeId:vol-052643952b6380cd0 NodeId:i-0100ed4583f5ec1ce VolumeCapability:mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER >  Readonly:false Secrets:map[] VolumeContext:map[fsType: storage.kubernetes.io/csiProvisionerIdentity:1557072870354-8081-ebs.csi.aws.com] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
+I0505 16:56:15.320234       1 cloud.go:337] AttachVolume volume="vol-052643952b6380cd0" instance="i-0100ed4583f5ec1ce" request returned {
+  AttachTime: 2019-05-05 16:56:15.291 +0000 UTC,
+  Device: "/dev/xvdca",
+  InstanceId: "i-0100ed4583f5ec1ce",
+  State: "attaching",
+  VolumeId: "vol-052643952b6380cd0"
+}
+I0505 16:56:16.573657       1 manager.go:208] Releasing in-process attachment entry: &{{
+  AmiLaunchIndex: 0,
+  Architecture: "x86_64",
+  BlockDeviceMappings: [{
+      DeviceName: "/dev/xvda",
+      Ebs: {
+        AttachTime: 2019-05-05 16:12:27 +0000 UTC,
+        DeleteOnTermination: true,
+        Status: "attached",
+        VolumeId: "vol-0295aaa05b03d1182"
+      }
+    }],
+  CapacityReservationSpecification: {
+    CapacityReservationPreference: "open"
+  },
+  ClientToken: "12345678",
+  CpuOptions: {
+    CoreCount: 1,
+    ThreadsPerCore: 2
+  },
+  EbsOptimized: true,
+  EnaSupport: true,
+  HibernationOptions: {
+    Configured: false
+  },
+  Hypervisor: "xen",
+  IamInstanceProfile: {
+    Arn: "arn:aws:iam::1234567:instance-profile/k8s-node-common",
+    Id: "AAAAAAAAAAA"
+  },
+  ImageId: "ami-0de53d8956e8dcf80",
+  InstanceId: "i-0100ed4583f5ec1ce",
+  InstanceLifecycle: "spot",
+  InstanceType: "m5a.large",
+  KeyName: "cf-test-1",
+  LaunchTime: 2019-05-05 16:12:27 +0000 UTC,
+  Monitoring: {
+    State: "disabled"
+  },
+  NetworkInterfaces: [{
+      Association: {
+        IpOwnerId: "amazon",
+        PublicDnsName: "ec2-3-18-58-95.compute-1.amazonaws.com",
+        PublicIp: "3.18.58.95"
+      },
+      Attachment: {
+        AttachTime: 2019-05-05 16:12:27 +0000 UTC,
+        AttachmentId: "eni-attach-0bc9f7eb215bf8332",
+        DeleteOnTermination: true,
+        DeviceIndex: 0,
+        Status: "attached"
+      },
+      Description: "",
+      Groups: [{
+          GroupId: "sg-0d94db57af7690fbd",
+          GroupName: "k8s-common"
+        }],
+      MacAddress: "0e:16:b6:5d:9c:3a",
+      NetworkInterfaceId: "eni-0087d42ad0c4b59e3",
+      OwnerId: "839151377425",
+      PrivateDnsName: "ip-172-16-101-65.ec2.internal",
+      PrivateIpAddress: "172.16.101.65",
+      PrivateIpAddresses: [{
+          Association: {
+            IpOwnerId: "amazon",
+            PublicDnsName: "ec2-3-18-58-95.compute-1.amazonaws.com",
+            PublicIp: "3.18.58.95"
+          },
+          Primary: true,
+          PrivateDnsName: "ip-172-16-101-65.ec2.internal",
+          PrivateIpAddress: "172.16.101.65"
+        }],
+      SourceDestCheck: true,
+      Status: "in-use",
+      SubnetId: "subnet-01fa8db1b4b684ff2",
+      VpcId: "vpc-0537c7ca2d5f768ce"
+    }],
+  Placement: {
+    AvailabilityZone: "us-east-1d",
+    GroupName: "",
+    Tenancy: "default"
+  },
+  PrivateDnsName: "ip-172-16-101-65.ec2.internal",
+  PrivateIpAddress: "172.16.101.65",
+  PublicDnsName: "ec2-3-18-58-99.compute-1.amazonaws.com",
+  PublicIpAddress: "3.18.58.95",
+  RootDeviceName: "/dev/xvda",
+  RootDeviceType: "ebs",
+  SecurityGroups: [{
+      GroupId: "sg-0d94db57af7690fbd",
+      GroupName: "cluster-ent-1-common"
+    }],
+  SourceDestCheck: true,
+  SpotInstanceRequestId: "sir-3xn8663j",
+  State: {
+    Code: 16,
+    Name: "running"
+  },
+  StateTransitionReason: "",
+  SubnetId: "subnet-01fa8db1b4b684ff2",
+  Tags: [{
+      Key: "Name",
+      Value: "test1-node"
+    },{
+      Key: "KubernetesCluster",
+      Value: "test1"
+    },{
+      Key: "aws:autoscaling:groupName",
+      Value: "test1-node-1"
+    }],
+  VirtualizationType: "hvm",
+  VpcId: "vpc-0537c7ca2d5f768ce"
+} /dev/xvdca vol-052643952b6380cd0 false false 0xa9a6e0} -> volume vol-052643952b6380cd0
+I0505 16:56:16.573969       1 controller.go:208] ControllerPublishVolume: volume vol-052643952b6380cd0 attached to node i-0100ed4583f5ec1ce through device /dev/xvdca

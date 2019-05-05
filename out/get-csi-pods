@@ -1,0 +1,5 @@
+[kosta@localhost awscsi-demo]$ kubectl get pods -nkube-system -l 'app in (ebs-csi-node,ebs-csi-controller)' -owide
+NAME                   READY   STATUS    RESTARTS   AGE     IP               NODE                             NOMINATED NODE   READINESS GATES
+ebs-csi-controller-0   6/6     Running   0          1m      10.200.4.2       ip-172-16-101-105.ec2.internal   <none>           <none>
+ebs-csi-node-9g5wd     3/3     Running   0          1m      172.16.101.65    ip-172-16-101-65.ec2.internal    <none>           <none>
+ebs-csi-node-bvd7j     3/3     Running   0          1m      172.16.101.105   ip-172-16-101-105.ec2.internal   <none>           <none>

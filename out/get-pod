@@ -1,0 +1,3 @@
+[kosta@localhost awscsi-demo]$ kubectl get pods -owide
+NAME   READY   STATUS    RESTARTS   AGE     IP           NODE                         
+app    1/1     Running   0          1m      10.200.5.2   ip-172-16-101-65.ec2.internal

@@ -1,0 +1,16 @@
+[kosta@localhost awscsi-demo]$ kubectl -nkube-system logs ebs-csi-node-9g5wd node-driver-registrar
+I0505 16:14:45.595830       1 main.go:108] Version: v1.0.2-rc1-0-g2edd7f10
+I0505 16:14:45.595882       1 main.go:115] Attempting to open a gRPC connection with: "/csi/csi.sock"
+I0505 16:14:45.595891       1 connection.go:69] Connecting to /csi/csi.sock
+I0505 16:14:45.596193       1 connection.go:96] Still trying, connection is CONNECTING
+I0505 16:14:45.596378       1 connection.go:93] Connected
+I0505 16:14:45.597363       1 main.go:123] Calling CSI driver to discover driver name.
+I0505 16:14:45.597419       1 connection.go:137] GRPC call: /csi.v1.Identity/GetPluginInfo
+I0505 16:14:45.597428       1 connection.go:138] GRPC request: {}
+I0505 16:14:45.601246       1 connection.go:140] GRPC response: {"name":"ebs.csi.aws.com","vendor_version":"0.3.0"}
+I0505 16:14:45.603798       1 connection.go:141] GRPC error: <nil>
+I0505 16:14:45.603806       1 main.go:131] CSI driver name: "ebs.csi.aws.com"
+I0505 16:14:45.603850       1 node_register.go:54] Starting Registration Server at: /registration/ebs.csi.aws.com-reg.sock
+I0505 16:14:45.603941       1 node_register.go:61] Registration Server started at: /registration/ebs.csi.aws.com-reg.sock
+I0505 16:14:45.605615       1 main.go:76] Received GetInfo call: &InfoRequest{}
+I0505 16:14:45.628337       1 main.go:86] Received NotifyRegistrationStatus call: &RegistrationStatus{PluginRegistered:true,Error:,}

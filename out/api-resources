@@ -1,0 +1,12 @@
+[kosta@localhost awscsi-demo]$ kubectl api-resources  | grep -E "^NAME|csi|storage|PersistentVolume"
+NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
+persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim
+persistentvolumes                 pv                                          false        PersistentVolume
+csidrivers                                     csi.storage.k8s.io             false        CSIDriver
+volumesnapshotclasses                          snapshot.storage.k8s.io        false        VolumeSnapshotClass
+volumesnapshotcontents                         snapshot.storage.k8s.io        false        VolumeSnapshotContent
+volumesnapshots                                snapshot.storage.k8s.io        true         VolumeSnapshot
+csidrivers                                     storage.k8s.io                 false        CSIDriver
+csinodes                                       storage.k8s.io                 false        CSINode
+storageclasses                    sc           storage.k8s.io                 false        StorageClass
+volumeattachments                              storage.k8s.io                 false        VolumeAttachment

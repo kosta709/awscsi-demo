@@ -1,0 +1,26 @@
+[kosta@localhost awscsi-demo]$ kubectl get volumeattachments
+NAME                                                                   CREATED AT
+csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88   2019-05-05T16:56:14Z
+[kosta@localhost awscsi-demo]$ kubectl get volumeattachment csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88 -oyaml
+apiVersion: storage.k8s.io/v1
+kind: VolumeAttachment
+metadata:
+  annotations:
+    csi.alpha.kubernetes.io/node-id: i-0100ed4583f5ec1ce
+  creationTimestamp: "2019-05-05T16:56:14Z"
+  finalizers:
+  - external-attacher/ebs-csi-aws-com
+  name: csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88
+  resourceVersion: "1975486"
+  selfLink: /apis/storage.k8s.io/v1/volumeattachments/csi-87730e334a8dd45e91bdee164290a17bc55de04045cf2bb690a8d78c4f4e7f88
+  uid: b185091e-6f56-11e9-bb97-0e59fa1a51a6
+spec:
+  attacher: ebs.csi.aws.com
+  nodeName: ip-172-16-101-65.ec2.internal
+  source:
+    persistentVolumeName: pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6
+status:
+  attached: true
+  attachmentMetadata:
+    devicePath: /dev/xvdca
+    

@@ -1,0 +1,23 @@
+[kosta@localhost awscsi-demo]$ kubectl -nkube-system logs ebs-csi-controller-0 cluster-driver-registrar
+I0505 16:14:28.987409       1 main.go:77] Version: v1.0.1-0-g0660c6c6
+I0505 16:14:28.987469       1 main.go:80] Attempting to open a gRPC connection with: "/csi/csi.sock"
+I0505 16:14:28.987478       1 connection.go:69] Connecting to /csi/csi.sock
+I0505 16:14:28.987850       1 connection.go:96] Still trying, connection is CONNECTING
+I0505 16:14:28.988128       1 connection.go:96] Still trying, connection is TRANSIENT_FAILURE
+I0505 16:14:29.988168       1 connection.go:96] Still trying, connection is TRANSIENT_FAILURE
+I0505 16:14:31.030315       1 connection.go:96] Still trying, connection is CONNECTING
+I0505 16:14:32.206663       1 connection.go:96] Still trying, connection is CONNECTING
+I0505 16:14:32.206760       1 connection.go:96] Still trying, connection is TRANSIENT_FAILURE
+I0505 16:14:33.272591       1 connection.go:96] Still trying, connection is CONNECTING
+I0505 16:15:28.987826       1 connection.go:89] Connection timed out
+I0505 16:15:28.987858       1 main.go:88] Calling CSI driver to discover driver name.
+I0505 16:15:28.987877       1 connection.go:137] GRPC call: /csi.v1.Identity/GetPluginInfo
+I0505 16:15:28.987885       1 connection.go:138] GRPC request: {}
+I0505 16:15:28.989733       1 connection.go:140] GRPC response: {"name":"ebs.csi.aws.com","vendor_version":"0.3.0"}
+I0505 16:15:28.990402       1 connection.go:141] GRPC error: <nil>
+I0505 16:15:28.990410       1 main.go:96] CSI driver name: "ebs.csi.aws.com"
+I0505 16:15:28.990419       1 main.go:100] Loading kubeconfig.
+I0505 16:15:28.990829       1 k8s_register.go:54] AttachRequired: true
+I0505 16:15:28.990847       1 k8s_register.go:55] PodInfoOnMountVersion: 
+I0505 16:15:28.990854       1 k8s_register.go:58] Registering csidrivers
+I0505 16:15:29.005810       1 k8s_register.go:69] CSIDriver CRD already had been registered

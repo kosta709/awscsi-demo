@@ -1,0 +1,8 @@
+[kosta@localhost awscsi-demo]$ ssh ec2-user@172.16.101.65
+
+[ec2-user@ip-172-16-101-65 ~]$ ls -l /dev/xvdca
+lrwxrwxrwx 1 root root 7 May  5 16:56 /dev/xvdca -> nvme1n1
+[ec2-user@ip-172-16-101-65 ~]$ 
+[ec2-user@ip-172-16-101-65 ~]$ mount | grep "/var/lib/kubelet" | grep csi
+/dev/nvme1n1 on /var/lib/kubelet/plugins/kubernetes.io/csi/pv/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/globalmount type ext4 (rw,relatime,data=ordered)
+/dev/nvme1n1 on /var/lib/kubelet/pods/ad48656a-6f56-11e9-bb97-0e59fa1a51a6/volumes/kubernetes.io~csi/pvc-7522b7e8-6f55-11e9-bb97-0e59fa1a51a6/mount type ext4 (rw,relatime,data=ordered)
