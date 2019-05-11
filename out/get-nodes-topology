@@ -1,0 +1,5 @@
+[kosta@localhost awscsi-demo]$ kubectl get nodes -L topology.ebs.csi.aws.com/zone
+NAME                             STATUS   ROLES    AGE     VERSION   ZONE
+ip-172-16-101-105.ec2.internal   Ready    <none>   6h42m   v1.14.1   us-east-1d
+ip-172-16-101-65.ec2.internal    Ready    <none>   6h42m   v1.14.1   us-east-1d
+ip-172-16-101-31.ec2.internal    Ready    master   15d     v1.14.1   
